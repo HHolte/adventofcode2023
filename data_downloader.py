@@ -27,4 +27,4 @@ def get_file_name(day: int, dataset: str):
 
 
 if __name__ == "__main__":
-    download_and_save_data(1, 2022)
+    download_and_save_data(1, 2023)
