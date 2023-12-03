@@ -1,5 +1,6 @@
 from enum import Enum
 from re import finditer
+from answer_submitter import submit_answer
 
 
 class StringToNumber(Enum):
@@ -48,12 +49,16 @@ def get_string_numbers(string: str):
 
 
 def main():
+    should_submit = False
     data = open("day1/test_data.txt", "r")
-    solution = solve_second_task(data)
 
-    print("Solution first task: ", solution)
+    solution = solve_second_task(data)
+    print("Solution second task: ", solution)
 
     data.close()
+
+    if should_submit:
+        submit_answer(solution, "b", day=1, year=2023)
 
 
 if __name__ == "__main__":

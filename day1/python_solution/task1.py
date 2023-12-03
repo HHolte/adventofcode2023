@@ -1,3 +1,6 @@
+from answer_submitter import submit_answer
+
+
 def solve_first_task(file):
     summ = 0
     for line in file:
@@ -15,12 +18,16 @@ def solve_first_task(file):
 
 
 def main():
+    should_submit = False
     data = open("day1/test_data.txt", "r")
-    solution = solve_first_task(data)
 
+    solution = solve_first_task(data)
     print("Solution first task: ", solution)
 
     data.close()
+
+    if should_submit:
+        submit_answer(solution, "a", day=1, year=2023)
 
 
 if __name__ == "__main__":

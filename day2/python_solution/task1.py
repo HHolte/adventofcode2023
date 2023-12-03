@@ -1,6 +1,12 @@
 from re import split
+from answer_submitter import submit_answer
 
 def solve_first_task(data, cube_configuration: dict[str, int]):
+    cube_configuration = {
+        "red": 12,
+        "green": 13,
+        "blue": 14,
+    }
     summ = 0
     for line in data:
         line_stripped = line.strip()
@@ -18,16 +24,16 @@ def game_is_possible_with_configuration(game: str, cube_configuration: dict[str,
     return True
 
 def main():
+    should_submit = False
     data = open("day2/test_data.txt")
-    cube_configuration = {
-        "red": 12,
-        "green": 13,
-        "blue": 14,
-    }
-    solution = solve_first_task(data, cube_configuration)
-    print(solution)
+
+    solution = solve_first_task(data)
+    print("Solution first task: ", solution)
 
     data.close()
+
+    if should_submit:
+        submit_answer(solution, part="a", day=2, year=2023)
 
 
 if __name__ == "__main__":

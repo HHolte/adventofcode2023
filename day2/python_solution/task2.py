@@ -23,11 +23,11 @@ def get_power_of_set(game):
 
 
 def main():
-    should_submit = True
+    should_submit = False
     data = open("day2/test_data.txt")
 
     solution = solve_second_task(data)
-    print(solution)
+    print("Solution second task: ", solution)
 
     data.close()
 
