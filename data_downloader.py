@@ -21,7 +21,3 @@ def save_data_to_file(day: int, test_data):
 
 def get_file_name(day: int, dataset: str):
     return f"day{day}/{dataset}_data.txt"
-
-
-if __name__ == "__main__":
-    download_and_save_data(2, 2023)

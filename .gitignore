@@ -7,5 +7,5 @@
 .vscode
 
 # Data
-**/example_data*
+**/example*
 **/test_data*
