@@ -28,7 +28,6 @@ def solve_second_task(file):
                     last_index = i
                     last_number = line[i]
         number = str(first_number) + str(last_number)
-        print(line, number)
         summ += int(number)
     return summ
 
