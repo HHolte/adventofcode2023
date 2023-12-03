@@ -1,6 +1,5 @@
 from enum import Enum
 from re import finditer
-from task1 import get_file
 
 
 class StringToNumber(Enum):
@@ -49,10 +48,12 @@ def get_string_numbers(string: str):
 
 
 def main():
-    data = get_file("day1/test_data.txt")
+    data = open("day1/test_data.txt", "r")
     solution = solve_second_task(data)
 
     print("Solution first task: ", solution)
+
+    data.close()
 
 
 if __name__ == "__main__":

@@ -5,3 +5,7 @@
 
 # Idea's
 .vscode
+
+# Data
+**/example_data*
+**/test_data*

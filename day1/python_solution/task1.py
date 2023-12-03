@@ -1,8 +1,3 @@
-def get_file(filename: str):
-    f = open(filename, "r")
-    return f
-
-
 def solve_first_task(file):
     summ = 0
     for line in file:
@@ -20,10 +15,12 @@ def solve_first_task(file):
 
 
 def main():
-    data = get_file("day1/test_data.txt")
+    data = open("day1/test_data.txt", "r")
     solution = solve_first_task(data)
 
     print("Solution first task: ", solution)
+
+    data.close()
 
 
 if __name__ == "__main__":
