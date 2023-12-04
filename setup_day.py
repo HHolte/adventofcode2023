@@ -12,7 +12,7 @@ def setup_folders_and_files(day: int):
 
 def main():
     year = 2023
-    day = 3
+    day = 4
     setup_folders_and_files(day)
     download_and_save_data(day, year)
 
