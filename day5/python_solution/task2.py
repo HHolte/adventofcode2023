@@ -46,7 +46,7 @@ def solve_second_task(data: str):
 
 
 def main():
-    should_submit = True
+    should_submit = False
     data = open("day5/test_data.txt", "r")
 
     solution = solve_second_task(data)
