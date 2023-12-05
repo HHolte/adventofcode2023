@@ -1,4 +1,5 @@
 from os import makedirs
+from sys import argv
 from data_downloader import download_and_save_data, get_file_name
 
 
@@ -11,8 +12,8 @@ def setup_folders_and_files(day: int):
 
 
 def main():
+    day = 5
     year = 2023
-    day = 4
     setup_folders_and_files(day)
     download_and_save_data(day, year)
 
