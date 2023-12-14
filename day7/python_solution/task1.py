@@ -5,33 +5,25 @@ from math import floor
 to_value = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "T": 10, "J": 11, "Q": 12, "K": 13, "A": 14}
 
 
-def get_high_card(unique_cards_on_hand):
-    highest = to_value[unique_cards_on_hand[0]]
-    for element in unique_cards_on_hand[1:]:
-        if to_value[element] > highest:
-            highest = to_value[element]
-    return highest
-
-
-def get_type(card: str):
-    uniques = "".join(set(card))
+def get_type(hand: str):
+    uniques = "".join(set(hand))
     if len(uniques) == 1:
-        return 20
+        return 21
     elif len(uniques) == 2:
-        temp = card.replace(uniques[0], "")
-        return 19 if len(temp) == 1 or len(temp) == 4 else 18
+        temp = hand.replace(uniques[0], "")
+        return 20 if len(temp) == 1 or len(temp) == 4 else 19
     elif len(uniques) == 3:
-        temp = card.replace(uniques[0], "")
+        temp = hand.replace(uniques[0], "")
         if len(temp) == 2:
-            return 17
+            return 18
         elif len(temp) == 3:
-            return 16
+            return 17
         temp = temp.replace(uniques[1], "")
-        return 17 if len(temp) == 1 or len(temp) == 3 else 16
+        return 18 if len(temp) == 1 or len(temp) == 3 else 17
     elif len(uniques) == 4:
-        return 15
+        return 16
     else:
-        return get_high_card(card)
+        return 15
 
 
 def cardwise_compare_hands(first_hand: str, second_hand: str):
@@ -49,7 +41,8 @@ def compare_hands(first_hand: str, second_hand: str):
     if first_hand_type > second_hand_type:
         return True
     if first_hand_type == second_hand_type:
-        return cardwise_compare_hands(first_hand, second_hand)
+        cardwise_compare_result = cardwise_compare_hands(first_hand, second_hand)
+        return cardwise_compare_result
     return False
 
 
@@ -83,7 +76,7 @@ def solve_first_task(data):
 
 
 def main():
-    should_submit = False
+    should_submit = True
     data = open("day7/test_data.txt", "r")
 
     solution = solve_first_task(data)
