@@ -26,7 +26,7 @@ def get_type(hand: str):
         return 15
 
 
-def cardwise_compare_hands(first_hand: str, second_hand: str):
+def cardwise_compare_hands(first_hand: str, second_hand: str, to_value: dict[str, int]):
     for i in range(len(first_hand)):
         if to_value[first_hand[i]] > to_value[second_hand[i]]:
             return True
@@ -41,7 +41,7 @@ def compare_hands(first_hand: str, second_hand: str):
     if first_hand_type > second_hand_type:
         return True
     if first_hand_type == second_hand_type:
-        cardwise_compare_result = cardwise_compare_hands(first_hand, second_hand)
+        cardwise_compare_result = cardwise_compare_hands(first_hand, second_hand, to_value)
         return cardwise_compare_result
     return False
 
