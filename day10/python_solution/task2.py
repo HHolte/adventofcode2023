@@ -1,71 +1,7 @@
 from sys import argv
 from answer_submitter import submit_answer
 from numpy import array, where
-
-
-def get_starting_direction(matrix, starting_index: tuple[int, int]):
-    y_start, x_start = starting_index
-    # S is along one of the top or bottom edges
-    if y_start == 0 or y_start == matrix.shape[0]:
-        if x_start == 0:
-            return y_start, x_start + 1
-        if x_start == matrix.shape[1]:
-            return y_start, x_start - 1
-        if matrix[y_start, x_start + 1] in ["-", "J", "7"]:
-            return y_start, x_start + 1
-        else:
-            return y_start, x_start - 1
-
-    # S is along one of the side edges
-    if x_start == 0 or x_start == matrix.shape[1]:
-        if y_start == 0:
-            return y_start + 1, x_start
-        if y_start == matrix.shape[0]:
-            return y_start - 1, x_start
-        if matrix[y_start + 1, x_start] in ["|", "L", "J"]:
-            return y_start + 1, x_start
-        else:
-            return y_start - 1, x_start
-
-    # S is in the interior
-    if matrix[y_start + 1, x_start] in ["|", "L", "J"]:
-        return y_start + 1, x_start
-    if matrix[y_start - 1, x_start] in ["|", "7", "F"]:
-        return y_start - 1, x_start
-    if matrix[y_start, x_start + 1] in ["-", "J", "7"]:
-        return y_start, x_start + 1
-    if matrix[y_start, x_start - 1] in ["-", "L", "F"]:
-        return y_start, x_start - 1
-
-
-def get_next_index(prev_index: tuple[int, int], current_index: tuple[int, int], element_at_index: str):
-    y_out, x_out = current_index
-    # Index 0 corresponds to y, index 1 corresponds to x, y increases downwards and x increases to the right
-    if element_at_index == "|":
-        y_out = y_out + 1 if prev_index[0] < current_index[0] else y_out - 1
-    elif element_at_index == "-":
-        x_out = x_out + 1 if prev_index[1] < current_index[1] else x_out - 1
-    elif element_at_index == "L":
-        if prev_index[0] < current_index[0]:
-            x_out += 1
-        else:
-            y_out -= 1
-    elif element_at_index == "J":
-        if prev_index[0] < current_index[0]:
-            x_out -= 1
-        else:
-            y_out -= 1
-    elif element_at_index == "7":
-        if prev_index[0] > current_index[0]:
-            x_out -= 1
-        else:
-            y_out += 1
-    elif element_at_index == "F":
-        if prev_index[0] > current_index[0]:
-            x_out += 1
-        else:
-            y_out += 1
-    return y_out, x_out
+from day10.python_solution.task1 import get_starting_direction, get_next_index
 
 
 def solve_second_task(data):
